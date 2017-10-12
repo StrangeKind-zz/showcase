@@ -1,0 +1,33 @@
+$directory-font:  "../../src/fonts" !default;
+$directory-image: "../../src/img" !default;
+
+
+$light:         #ffffff !default;
+$dark:          #000000 !default;
+
+
+//
+// Typography
+// Why: Reused by most components
+//
+
+$font-weight-normal: normal !default;
+$font-weight-bold:   bold !default;
+
+$line-height: 1.5 !default;
+$line-height-sm: 1.5 !default;
+$line-height-lg: 1.5 !default;
+
+
+// colors
+
+$color-1: #a6dad3; // Sinbad
+$color-2: #f6f9e7; // Rum Swizzle
+$color-3: #ff8d78; // Vivid Tangerine
+$color-4: #ea5056; // Mandy
+$color-5: #0f293d; // Elephant
+
+// fonts
+
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Lora', serif;;

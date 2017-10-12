@@ -1,0 +1,54 @@
+body {
+    background-color: $dark;
+    overflow-y: scroll;
+}
+
+// breakpoints
+
+$S:     480px;
+$M:     768px;
+$L:     1170px;
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; }
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; }
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; }
+  }
+}
+
+// super light grid system
+
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
+.grid-edge-side {
+    padding-left: 4.5vw;
+    padding-right: 4.5vw;
+}
+.grid-edge-side-right {
+    padding-right: 4.5vw;
+}
+.grid-edge-top-large {
+    padding-top: 13vw;
+}
+.grid-edge-top-medium {
+    padding-top: 8vw;
+}
+.grid-edge-bottom-large {
+    padding-bottom: 13vw;
+}
+.grid-edge-bottom-medium {
+    padding-bottom: 8vw;
+}
+.grid-edge-vertical-large {
+    padding-bottom: 13vw;
+    padding-top: 13vw;
+}
