@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'GL-Regular';
+	src: url('#{$directory-font}/regular.eot');
+	src:
+        local('☺'),
+        url('#{$directory-font}/regular.woff') format('woff'),
+        url('#{$directory-font}/regular.ttf') format('truetype'),
+        url('#{$directory-font}/regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GL-Demi';
+	src: url('#{$directory-font}/demi.eot');
+	src:
+        local('☺'),
+        url('#{$directory-font}/demi.woff') format('woff'),
+        url('#{$directory-font}/demi.ttf') format('truetype'),
+        url('#{$directory-font}/demi.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}

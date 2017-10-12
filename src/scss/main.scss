@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+@import "bootstrap";
+@import "animate";
+
+// Normalize
+@import "normalize";
+
+// Core CSS
+@import "type";
+@import "layout";
+@import "fonts";
+@import "nav";
+@import "header";
+@import "preloader";
+@import "project";
+@import "swiper";

@@ -1,0 +1,430 @@
+  .project--thumb,
+.mask, .mask--single {
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	will-change: transform, opacity;
+}
+.appear {
+    pointer-events: inherit;
+}
+.disappear {
+    pointer-events: none;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}
+.project--thumb {
+	position: relative;
+	@include center;
+	height: 70%;
+	width: 70%;
+	top: 0;
+	left: 0;
+	transform: translateX(25%) translateY(25%);
+	background: no-repeat center center;
+	background-size: cover;
+	opacity: 0.5;
+
+	&__single {
+		width: 100%;
+		height: 100vh;
+		position: relative;
+		background-size: cover;
+	    background-position: center center;
+		overflow: hidden;
+		z-index: 1;
+		display: block;
+		top: 0;
+		left: 0;
+		opacity: 0.5;
+		transform: translateX(0%) translateY(0%);
+	}
+}
+.singleTitle {
+
+    span {
+
+        opacity: 0;
+    }
+}
+
+.project {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+    background: $dark;
+
+	h1 {
+		position: absolute;
+		z-index: 1;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        margin-top: -40px;
+		display: block;
+
+		span {
+			transition: all .4s ease;
+			opacity: 0;
+			display: inline-block;
+		}
+	}
+
+	&--title {
+		position: absolute;
+		z-index: 2;
+		padding-left: 4.5vw;
+		padding-right: 4.5vw;
+		box-sizing: border-box;
+		width: 100%;
+		align-self: center;
+		display: block;
+		overflow: hidden;
+
+		h2 {
+			color: white;
+			font-size: 8vw;
+			text-align: center;
+
+			span {
+				display: inline-block;
+			}
+		}
+	}
+    &--fade {
+        width: 100%;
+        height: 25vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    }
+
+	.project-view &:not(.project-selected) {
+		/* the project-view class is added to the .cd-image-mask-effect element when a project is selected - hide all not selected projects */
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.mask {
+		position: absolute;
+		@include center;
+		width: 300px;
+		height: 300px;
+		transition: all .4s ease;
+
+        &--single {
+            position: absolute;
+    		@include center;
+    		width: 300px;
+    		height: 300px;
+    		transition: all .4s ease;
+            z-index: 2;
+            transform: translateX(-50%) translateY(-50%) scale(2);
+            opacity: 0;
+            left: 50%;
+            top: 50%;
+
+            img {
+    			display: block;
+                max-width: 100%;
+                height: auto;
+    		}
+
+    		.mask--border {
+    			position: absolute;
+                background-color: $dark;
+    		}
+
+    		.mask--border__top,
+    		.mask--border__bottom {
+    			height: calc(50vh - 150px + 10px);
+    			width: 100vw;
+    			@include center(x);
+    		}
+
+    		.mask--border__top {
+    			bottom: calc(100% - 10px);
+    		}
+
+    		.mask--border__topborder__bottom {
+    			top: calc(100% - 10px);
+    		}
+
+    		.mask--border__left,
+    		.mask--border__right {
+    			height: 100vh;
+    			width: calc(50vw - 150px + 10px);
+    			@include center(y);
+    		}
+
+    		.mask--border__left {
+    			left: calc(100% - 10px);
+    		}
+
+    		.mask--border__right {
+    			right: calc(100% - 10px);
+    		}
+        }
+
+		img {
+			display: block;
+            max-width: 100%;
+            height: auto;
+		}
+
+		.mask--border {
+			position: absolute;
+            background-color: $dark;
+		}
+
+		.mask--border__top,
+		.mask--border__bottom {
+			height: calc(50vh - 150px + 10px);
+			width: 100vw;
+			@include center(x);
+		}
+
+		.mask--border__top {
+			bottom: calc(100% - 10px);
+		}
+
+		.mask--border__topborder__bottom {
+			top: calc(100% - 10px);
+		}
+
+		.mask--border__left,
+		.mask--border__right {
+			height: 100vh;
+			width: calc(50vw - 150px + 10px);
+			@include center(y);
+		}
+
+		.mask--border__left {
+			left: calc(100% - 10px);
+		}
+
+		.mask--border__right {
+			right: calc(100% - 10px);
+		}
+	}
+
+	.project-trigger,
+	.project-close {
+		position: absolute;
+		z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translateX(-50%) translateY(-50%);
+        transition: all .4s;
+	}
+
+	.project-trigger {
+        color: $light;
+		font-weight: bold;
+		text-decoration: none;
+		transition: all .3s ease;
+
+		&:hover {
+			letter-spacing: 0.02em;
+		}
+	}
+
+	&.project-selected .project-trigger {
+		/* hide .project-trigger when a project has been selected */
+		opacity: 0;
+		visibility: hidden;
+	}
+
+
+	.project-close {
+		/* this is the 'X' icon - visible when a project has been selected */
+		top: 24px;
+		height: 48px;
+		width: 48px;
+		border-radius: 50%;
+		background: rgba(#000, .6);
+		transform: scale(0);
+		transition: transform .3s;
+
+		&:hover {
+			background: rgba(#000, 1);
+		}
+
+		&::after, &::before {
+			/* the 'X' lines */
+			content: '';
+			position: absolute;
+			width: 18px;
+			height: 2px;
+			top: 50%;
+			left: 50%;
+			background: white;
+		}
+
+		&::before {
+			transform: translateX(-50%) translateY(-50%) rotate(45deg);
+		}
+
+		&::after {
+			transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+		}
+	}
+
+	&.project-selected .project--thumb {
+		transition: all .6s;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+		position: relative;
+	}
+
+	&.project-selected .mask {
+		/* mask scale value is set using js */
+		opacity: 0;
+		transition: transform .6s 0s, opacity .3s .3s;
+		transition-timing-function: cubic-bezier(.59,.05,.82,.13);
+	}
+
+	&.scaling-down.project-selected .project-close {
+		/* the scaling-down class is added to the project when the user closes it */
+		transform: scale(0);
+		transition: transform .3s 0s;
+	}
+
+	&.scaling-down.project-selected .project--thumb {
+		/* the scaling-down class is added to the project when the user closes it */
+		transform: translateX(-50%) translateY(-50%);
+		transition: all 1s;
+        opacity: 1;
+	}
+
+	&.scaling-down.project-selected .mask {
+		/* the scaling-down class is added to the project when the user closes it */
+		opacity: 1;
+		transition: transform 1s 0s, opacity .3s;
+		transition-timing-function: cubic-bezier(.08,.37,.13,.99);
+	}
+
+	&.no-transition .mask {
+		/* the no-transition class is used during window resize - remove transition while resetting mask scale */
+		transition: none;
+	}
+
+	&.dark-bg {
+		h1, .project-trigger {
+			color: white;
+		}
+	}
+
+	@media only screen and (max-height: 390px) {
+		.mask, .mask--single {
+			width: 76vh;
+			height: 76vh;
+
+			.mask--border__top, .mask--border__bottom {
+				/* height -> 50vh - 38vh + 10px */
+				height: calc(12vh + 10px);
+			}
+
+			.mask--border__left, .mask--border__right {
+				width: calc(50vw - 38vh + 10px);
+			}
+		}
+	}
+
+	@include MQ(M) {
+
+		.mask, .mask--single {
+			width: 480px;
+			height: 480px;
+
+			.mask--border__top, .mask--border__bottom {
+				height: calc(50vh - 240px  + 10px);
+			}
+
+			.mask--border__left, .mask--border__right {
+				width: calc(50vw - 240px  + 10px);
+			}
+		}
+
+		.project-trigger {
+			font-size: 2rem;
+		}
+	}
+
+	@media only screen and (min-width: $M) and (max-height: 630px){
+		.mask, .mask--single {
+			width: 76vh;
+			height: 76vh;
+
+			.mask--border__top, .mask--border__bottom {
+				/* height -> 50vh - 38vh + 10px */
+				height: calc(12vh + 10px);
+			}
+
+			.mask--border__left, .mask--border__right {
+				width: calc(50vw - 38vh + 10px);
+			}
+		}
+	}
+
+	@include MQ(L) {
+
+		h1 {
+			font-size: 4.3rem;
+		}
+
+		&.center-title h1 {
+			font-size: 9vw;
+			margin-top: -90px;
+		}
+
+		.mask, .mask--single {
+			width: 840px;
+			height: 840px;
+
+			.mask--border__top, .mask--border__bottom {
+				height: calc(50vh - 320px  + 10px);
+			}
+
+			.mask--border__left, .mask--border__right {
+				width: calc(50vw - 320px  + 10px);
+			}
+		}
+
+		.project-trigger {
+			font-size: 2.4rem;
+		}
+	}
+
+	@media only screen and (min-width: $L) and (max-height: 840px){
+		.mask, .mask--single {
+			width: 76vh;
+			height: 76vh;
+
+			.mask--border__top, .mask--border__bottom {
+				/* height -> 50vh - 38vh + 10px */
+				height: calc(12vh + 10px);
+			}
+
+			.mask--border__left, .mask--border__right {
+				width: calc(50vw - 38vh + 10px);
+			}
+		}
+	}
+}
