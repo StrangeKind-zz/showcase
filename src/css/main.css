@@ -5713,28 +5713,39 @@ button.close {
     display: none !important; } }
 
 /*# sourceMappingURL=bootstrap.css.map */
+.animated-slow {
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
+
 .animated {
   animation-duration: 1s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-zero {
   animation-duration: 0s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-three {
   animation-duration: .3s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-six {
   animation-duration: .6s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-slow {
   animation-duration: 2s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated.infinite {
-  animation-iteration-count: infinite; }
+  animation-iteration-count: infinite;
+  animation-timing-function: ease; }
 
 .animated.hinge {
   animation-duration: 2s; }
@@ -6897,6 +6908,18 @@ button.close {
 .maskReturn {
   animation-name: maskReturn; }
 
+@keyframes slideInLeftOut {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible; }
+  50% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(100%, 0, 0); } }
+
+.slideInLeftOut {
+  animation-name: slideInLeftOut; }
+
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -7397,7 +7420,6 @@ body {
   display: flex;
   background: #000000; }
   .project h1 {
-    position: absolute;
     z-index: 1;
     width: 100%;
     text-align: center;
@@ -7535,7 +7557,7 @@ body {
     z-index: 3;
     top: 50%;
     left: 50%;
-    width: 100%;
+    margin-top: 15px;
     text-align: center;
     transform: translateX(-50%) translateY(-50%);
     transition: all .4s; }
@@ -7656,6 +7678,16 @@ body {
         height: calc(12vh + 10px); }
       .project .mask .mask--border__left, .project .mask .mask--border__right, .project .mask--single .mask--border__left, .project .mask--single .mask--border__right {
         width: calc(50vw - 38vh + 10px); } }
+
+.overlay-loader {
+  position: absolute;
+  background-color: #000000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  visibility: visible; }
 
 .preloader {
   width: 100%;

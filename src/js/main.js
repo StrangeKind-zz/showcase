@@ -13,19 +13,25 @@ $(document).ready(function () {
 		mousewheelControl: true,
 		loop: true,
 		effect: 'fade',
-		speed: 1200,
+		speed: 400,
 		pagination: '.swiper-pagination',
 		paginationType: 'fraction',
-		onSlideChangeEnd(swiper) {
-		  if ($('.project').hasClass('swiper-slide-active')) {
-	        $('.swiper-slide-active').find('h1 span').addClass('fadeInUp');
-			$('.swiper-slide-active').find('h1 span').removeClass('fadeOutDown');
-		} else {
-			$('.project').find('h1 span').addClass('fadeOutDown');
-			$('.project').find('h1 span').removeClass('fadeInUp');
-	      }
-	    }
-	})
+		onSlideChangeStart(swiper) {
+			var projects = $('.project');
+			Array.prototype.forEach.call(projects, function(project){
+				$project = $(project);
+				if ($project.hasClass('swiper-slide-active')) {
+					$project.find('h1 span').removeClass('fadeOutDown');
+					$project.find('h1 span').addClass('fadeInUp');
+					$project.find('.overlay-loader').addClass('slideOutRight');
+				} else {
+					$project.find('h1 span').addClass('fadeOutDown');
+					$project.find('h1 span').removeClass('fadeInUp');
+					$project.find('.overlay-loader').removeClass('slideOutRight');
+				}
+			});
+		}
+	});
 
 	$(function() {
 
@@ -34,6 +40,19 @@ $(document).ready(function () {
 		if (Barba.HistoryManager.currentStatus().namespace === "project") {
 			mySwiper.disableMousewheelControl();
 			mySwiper.disableTouchControl();
+			var projects = $('.project');
+			Array.prototype.forEach.call(projects, function(project){
+				$project = $(project);
+				if ($project.hasClass('swiper-slide-active')) {
+					$project.find('h1 span').removeClass('fadeInUp');
+					$project.find('h1 span').addClass('fadeOutDown');
+					$project.find('.overlay-loader').addClass('slideOutRight');
+				} else {
+					$project.find('h1 span').addClass('fadeOutDown');
+					$project.find('h1 span').removeClass('fadeInUp');
+					$project.find('.overlay-loader').removeClass('slideOutRight');
+				}
+			});
 		  }
 		var FadeTransition = Barba.BaseTransition.extend({
 		  start: function() {
@@ -175,8 +194,8 @@ $(document).ready(function () {
 			  $('.singleTitle span').removeClass('second third');
 			  $('.project-trigger').removeClass('disappear');
 			  $('.project-trigger').addClass('appear');
-			  $('.project h1 span').addClass('fifth fadeInUp');
-			  $('.project h1 span').removeClass('fadeOutDown');
+			  $('.project h1 span').addClass('fifth fadeInUp show');
+			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  mySwiper.enableMousewheelControl();
 			  mySwiper.enableTouchControl();
 		  },
