@@ -3,56 +3,138 @@ var hamburger = document.querySelector(".hamburger");
 	hamburger.classList.toggle("is-active");
 });
 
-
 $(document).ready(function () {
-//initialize swiper when document ready
-	var mySwiper = new Swiper ('.swiper-container', {
-		// Optional parameters
-		direction: 'horizontal',
-		scrollbarDraggable: false,
-		mousewheelControl: true,
-		loop: true,
-		effect: 'fade',
-		speed: 400,
-		pagination: '.swiper-pagination',
-		paginationType: 'fraction',
-		onSlideChangeStart(swiper) {
-			var projects = $('.project');
-			Array.prototype.forEach.call(projects, function(project){
-				$project = $(project);
-				if ($project.hasClass('swiper-slide-active')) {
-					$project.find('h1 span').removeClass('fadeOutDown');
-					$project.find('h1 span').addClass('fadeInUp');
-					$project.find('.overlay-loader').addClass('slideOutRight');
-				} else {
-					$project.find('h1 span').addClass('fadeOutDown');
-					$project.find('h1 span').removeClass('fadeInUp');
-					$project.find('.overlay-loader').removeClass('slideOutRight');
-				}
-			});
-		}
+
+	(function($) {
+
+	/**
+	 * Copyright 2012, Digital Fusion
+	 * Licensed under the MIT license.
+	 * http://teamdf.com/jquery-plugins/license/
+	 *
+	 * @author Sam Sehnert
+	 * @desc A small plugin that checks whether elements are within
+	 *     the user visible viewport of a web browser.
+	 *     only accounts for vertical position, not horizontal.
+	 */
+
+	$.fn.visible = function(partial) {
+
+		var $t            = $(this),
+			$w            = $(window),
+			viewTop       = $w.scrollTop(),
+			viewBottom    = viewTop + $w.height(),
+			_top          = $t.offset().top,
+			_bottom       = _top + $t.height(),
+			compareTop    = partial === true ? _bottom : _top,
+			compareBottom = partial === true ? _top : _bottom;
+
+	  return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+	};
+
+	})(jQuery);
+
+	$(window).scroll(function(event) {
+
+	$(".plx").each(function(i, el) {
+	  var el = $(el);
+	  if (el.visible(true)) {
+		el.addClass("fadeInUp");
+	  }
 	});
+
+	$(".plx-1").each(function(i, el) {
+	  var el = $(el);
+	  if (el.visible(true)) {
+		el.addClass("fadeIn");
+	  }
+	});
+
+	});
+
+		$('.pagepiling').pagepiling({
+	        direction: 'vertical',
+	        verticalCentered: false,
+	        scrollingSpeed: 800,
+	        easing: 'swing',
+	        loopBottom: false,
+	        loopTop: false,
+	        css3: true,
+	       	normalScrollElements: null,
+	        normalScrollElementTouchThreshold: 5,
+	        touchSensitivity: 5,
+	        keyboardScrolling: true,
+	        sectionSelector: '.section',
+	        animateAnchor: false,
+			navigation: false,
+
+			//events
+			onLeave: function(index, nextIndex, direction){
+				$('.section').find('.overlay-loader').removeClass('slideOutRight');
+				$('.section').find('.overlay-loader').addClass('slideInLeft');
+				$('.pp-section.active').find('h1 span').addClass('fadeOutDown');
+				$('.pp-section.active').find('h1 span').removeClass('fadeInUp');
+				$('.pp-section.active').find('h1 span').removeClass('fadeOutDown');
+			},
+			afterLoad: function(anchorLink, index, direction){
+				$('.pp-section.active').find('.overlay-loader').addClass('slideOutRight');
+				$('.pp-section.active').find('h1 span').addClass('fadeInUp');
+				$('.pp-section.active').find('.overlay-loader').removeClass('slideInLeft');
+
+				if(index == 1){
+					$('.pagination--current__1').addClass('fadeInUp');
+					$('.pagination--current__2').removeClass('fadeOutDown');
+					$('.pagination--current__2').removeClass('fadeInUp');
+					$('.pagination--current__3').removeClass('fadeInUp');
+					$('.pagination--current__4').removeClass('fadeInUp');
+					$('.pagination--current__5').removeClass('fadeInUp');
+				}
+				if(index == 2){
+					$('.pagination--current__2').addClass('fadeInUp');
+					$('.pagination--current__2').removeClass('fadeOutDown');
+					$('.pagination--current__1').removeClass('fadeInUp');
+					$('.pagination--current__3').removeClass('fadeInUp');
+					$('.pagination--current__4').removeClass('fadeInUp');
+					$('.pagination--current__5').removeClass('fadeInUp');
+				}
+				if(index == 3){
+					$('.pagination--current__3').addClass('fadeInUp');
+					$('.pagination--current__3').removeClass('fadeOutDown');
+					$('.pagination--current__1').removeClass('fadeInUp');
+					$('.pagination--current__2').removeClass('fadeInUp');
+					$('.pagination--current__4').removeClass('fadeInUp');
+					$('.pagination--current__5').removeClass('fadeInUp');
+				}
+				if(index == 4){
+					$('.pagination--current__4').addClass('fadeInUp');
+					$('.pagination--current__4').removeClass('fadeOutDown');
+					$('.pagination--current__1').removeClass('fadeInUp');
+					$('.pagination--current__2').removeClass('fadeInUp');
+					$('.pagination--current__3').removeClass('fadeInUp');
+					$('.pagination--current__5').removeClass('fadeInUp');
+				}
+				if(index == 5.){
+					$('.pagination--current__5').addClass('fadeInUp');
+					$('.pagination--current__5').removeClass('fadeOutDown');
+					$('.pagination--current__1').removeClass('fadeInUp');
+					$('.pagination--current__2').removeClass('fadeInUp');
+					$('.pagination--current__4').removeClass('fadeInUp');
+					$('.pagination--current__3').removeClass('fadeInUp');
+				}
+
+			}
+
+	})
 
 	$(function() {
 
 		Barba.Pjax.start();
 
 		if (Barba.HistoryManager.currentStatus().namespace === "project") {
-			mySwiper.disableMousewheelControl();
-			mySwiper.disableTouchControl();
-			var projects = $('.project');
-			Array.prototype.forEach.call(projects, function(project){
-				$project = $(project);
-				if ($project.hasClass('swiper-slide-active')) {
-					$project.find('h1 span').removeClass('fadeInUp');
-					$project.find('h1 span').addClass('fadeOutDown');
-					$project.find('.overlay-loader').addClass('slideOutRight');
-				} else {
-					$project.find('h1 span').addClass('fadeOutDown');
-					$project.find('h1 span').removeClass('fadeInUp');
-					$project.find('.overlay-loader').removeClass('slideOutRight');
-				}
-			});
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$(window).enllax();
 		  }
 		var FadeTransition = Barba.BaseTransition.extend({
 		  start: function() {
@@ -135,9 +217,7 @@ $(document).ready(function () {
 		  },
 		  onLeave: function() {
 		      // A new Transition toward a new page has just started.
-			  console.log(mySwiper);
 			  $('.project h1 span').addClass('fadeOutDown');
-			  $('.project h1 span').removeClass('fifth fadeInUp');
 			  $('.mask').addClass('animated fifth maskFade');
 			  $('.mask').removeClass('maskReturn');
 			  $('.mask--single').addClass('maskFade');
@@ -150,9 +230,11 @@ $(document).ready(function () {
 			  $('.project--title').addClass('show');
 			  $('.project--title').removeClass('hidden');
 			  $('.project--title h2 span').removeClass('fadeOutDown');
+			  $('.pagination').addClass('fadeOutDown');
+			  $('.pagination').removeClass('fadeInUp');
 			  $('.project--title h2 span').addClass('fadeInUp');
-			  mySwiper.disableMousewheelControl();
-			  mySwiper.disableTouchControl();
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
 		  },
 		  onLeaveCompleted: function() {
 		      // The Container has just been removed from the DOM.
@@ -170,6 +252,7 @@ $(document).ready(function () {
 			  $('.project-trigger').addClass('disappear').delay(1600);
 			  $('.project-trigger').removeClass('appear').delay(1600);
 			  console.log('hi project');
+			  $(window).enllax();
 		  },
 		  onEnterCompleted: function() {
 		      // The Transition has just finished.
@@ -192,12 +275,15 @@ $(document).ready(function () {
 			  $('.mask').removeClass('maskFade');
 			  $('.singleTitle span').addClass('fadeInUp');
 			  $('.singleTitle span').removeClass('second third');
-			  $('.project-trigger').removeClass('disappear');
+			  $('.project-trigger').removeClass('disappear hidden');
 			  $('.project-trigger').addClass('appear');
 			  $('.project h1 span').addClass('fifth fadeInUp show');
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
-			  mySwiper.enableMousewheelControl();
-			  mySwiper.enableTouchControl();
+			  $('.pagination').addClass('fadeInUp');
+			  $('.pagination').removeClass('fadeOutDown');
+			  $.fn.pagepiling.setAllowScrolling(true);
+			  $.fn.pagepiling.setKeyboardScrolling(true);
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
 		  },
 		  onLeaveCompleted: function() {
 		      // The Container has just been removed from the DOM.

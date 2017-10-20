@@ -4,6 +4,7 @@
         font-size: 3vw;
         letter-spacing: 1.5;
         text-align: justify;
+        opacity: 0;
     }
     h4 {
         font-size: 21px;
@@ -22,7 +23,11 @@
         color: white;
         font-family: 'GL-Regular';
     }
-
+    &__push {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
     &__introduction {
         box-sizing: border-box;
     }
@@ -33,8 +38,15 @@
             font-size: 22vw;
             position: absolute;
             opacity: 0.1;
-            bottom: 3vw;
+            bottom: 13vw;
             line-height: 11vw;
+            margin-left: -10%;
+        }
+        h4 {
+            opacity: 0;
+        }
+        p {
+            opacity: 0;
         }
         .col-sm-3 {
             margin-top: 50px;
@@ -50,6 +62,7 @@
             opacity: 0.1;
             bottom: 3vw;
             line-height: 11vw;
+            margin-left: 25%;
         }
     }
     &__thumb-1 {
@@ -58,15 +71,24 @@
         &-inner {
             background-color: #e6e6e6;
             height: 100%;
+            opacity: 0;
         }
     }
     &__thumb-2 {
         height: 50vh;
         background-color: #e6e6e6;
+        opacity: 0;
     }
     &__quote {
         display: flex;
         height: 50vh;
+
+        h5 {
+            opacity: 0;
+        }
+        p {
+            opacity: 0;
+        }
 
         &-inner {
             align-self: center;
@@ -80,10 +102,14 @@
             width: 100%;
             height: 900px;
             background-color: #e6e6e6;
+            opacity: 0;
         }
         &-text {
             padding-top: 30px;
             box-sizing: border-box;
+        }
+        &-list {
+            opacity: 0;
         }
         &-list ul {
             margin-top: 80px;
@@ -109,9 +135,5 @@
                 margin-right: 30px;
             }
         }
-    }
-    &__parallax {
-        overflow: hidden;
-        position: relative;
     }
 }
