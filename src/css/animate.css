@@ -1,25 +1,36 @@
+.animated-slow {
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
+
 .animated {
   animation-duration: 1s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-zero {
   animation-duration: 0s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-three {
   animation-duration: .3s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-six {
   animation-duration: .6s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated-slow {
   animation-duration: 2s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  animation-timing-function: ease; }
 
 .animated.infinite {
-  animation-iteration-count: infinite; }
+  animation-iteration-count: infinite;
+  animation-timing-function: ease; }
 
 .animated.hinge {
   animation-duration: 2s; }
@@ -1181,3 +1192,15 @@
 
 .maskReturn {
   animation-name: maskReturn; }
+
+@keyframes slideInLeftOut {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible; }
+  50% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(100%, 0, 0); } }
+
+.slideInLeftOut {
+  animation-name: slideInLeftOut; }
