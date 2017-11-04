@@ -1,8 +1,3 @@
-var hamburger = document.querySelector(".hamburger");
-	hamburger.addEventListener("click", function() {
-	hamburger.classList.toggle("is-active");
-});
-
 $(document).ready(function () {
 
 	(function($) {
@@ -131,39 +126,64 @@ $(document).ready(function () {
 
 		Barba.Pjax.start();
 
-		if (Barba.HistoryManager.currentStatus().namespace === "project") {
+		if (Barba.HistoryManager.currentStatus().namespace === "woodwork") {
 			$.fn.pagepiling.setAllowScrolling(false);
 			$.fn.pagepiling.setKeyboardScrolling(false);
-			$(window).enllax();
-		  }
+			$.fn.pagepiling.moveTo(1);
+			$.fn.pagepiling.setScrollingSpeed(0);
+		}
+
+		if (Barba.HistoryManager.currentStatus().namespace === "protest") {
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$.fn.pagepiling.moveTo(2);
+			$.fn.pagepiling.setScrollingSpeed(0);
+		}
+
+		if (Barba.HistoryManager.currentStatus().namespace === "bpd") {
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$.fn.pagepiling.moveTo(3);
+			$.fn.pagepiling.setScrollingSpeed(0);
+		}
+
+		if (Barba.HistoryManager.currentStatus().namespace === "alberta") {
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$.fn.pagepiling.moveTo(4);
+			$.fn.pagepiling.setScrollingSpeed(0);
+		}
+
+		if (Barba.HistoryManager.currentStatus().namespace === "diversity") {
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$.fn.pagepiling.moveTo(5);
+			$.fn.pagepiling.setScrollingSpeed(0);
+		}
+
+		if (Barba.HistoryManager.currentStatus().namespace === "about") {
+			$('.about-link').removeClass('inactive-link');
+			$('.project-link').addClass('inactive-link');
+			$.fn.pagepiling.setAllowScrolling(false);
+			$.fn.pagepiling.setKeyboardScrolling(false);
+			$('.pagepiling').addClass('animated fadeOut');
+			$('.about--container').addClass('fadeIn');
+			$('.about--container__header h1').addClass('fadeInUp');
+			$('.about--container__header h1').removeClass('fadeOut');
+		}
 		var FadeTransition = Barba.BaseTransition.extend({
 		  start: function() {
-		    /**
-		     * This function is automatically called as soon the Transition starts
-		     * this.newContainerLoading is a Promise for the loading of the new container
-		     * (Barba.js also comes with an handy Promise polyfill!)
-		     */
-
-		    // As soon the loading is finished and the old page is faded out, let's fade the new page
 		    Promise
 		      .all([this.newContainerLoading, this.fadeOut()])
 		      .then(this.fadeIn.bind(this));
 		  },
 
 		  fadeOut: function() {
-		    /**
-		     * this.oldContainer is the HTMLElement of the old Container
-		     */
 
-		    return $(this.oldContainer).delay(1600).animate({ opacity: 0 }, 0).promise();
+		    return $(this.oldContainer).delay(1600).animate({ opacity: 0 }, 700).promise();
 		  },
 
 		  fadeIn: function() {
-		    /**
-		     * this.newContainer is the HTMLElement of the new Container
-		     * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-		     * Please note, newContainer is available just after newContainerLoading is resolved!
-		     */
 
 		    var _this = this;
 		    var $el = $(this.newContainer);
@@ -178,26 +198,14 @@ $(document).ready(function () {
 		      opacity : 0
 		    });
 
-		    $el.delay(0).animate({ opacity: 1 }, 0, function() {
-		      /**
-		       * Do not forget to call .done() as soon your transition is finished!
-		       * .done() will automatically remove from the DOM the old Container
-		       */
+		    $el.delay(0).animate({ opacity: 1 }, 700, function() {
 
 		      _this.done();
 		    });
 		  }
 		});
 
-		/**
-		 * Next step, you have to tell Barba to use the new Transition
-		 */
-
 		Barba.Pjax.getTransition = function() {
-		  /**
-		   * Here you can use your own logic!
-		   * For example you can use different Transition based on the current page or link...
-		   */
 
 		  return FadeTransition;
 		};
@@ -205,18 +213,34 @@ $(document).ready(function () {
 		var Homepage = Barba.BaseView.extend({
 		  namespace: 'homepage',
 		  onEnter: function() {
-		      // The new Container is ready and attached to the DOM.
-			  console.log('enter');
 			  $('.project-trigger').removeClass('disappear').delay(1600);
 			  $('.project-trigger').addClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(true);
+			  $.fn.pagepiling.setKeyboardScrolling(true);
 
 		  },
 		  onEnterCompleted: function() {
-		      // The Transition has just finished.
-			  console.log('entercompleted');
 		  },
 		  onLeave: function() {
-		      // A new Transition toward a new page has just started.
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		Homepage.init();
+
+		var Woodwork = Barba.BaseView.extend({
+		  namespace: 'woodwork',
+		  onEnter: function() {
+			  $('.project-trigger').addClass('disappear').delay(1600);
+			  $('.project-trigger').removeClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $.fn.pagepiling.moveTo(1);
 			  $('.project h1 span').addClass('fadeOutDown');
 			  $('.mask').addClass('animated fifth maskFade');
 			  $('.mask').removeClass('maskReturn');
@@ -233,34 +257,10 @@ $(document).ready(function () {
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
 			  $('.project--title h2 span').addClass('fadeInUp');
-			  $.fn.pagepiling.setAllowScrolling(false);
-			  $.fn.pagepiling.setKeyboardScrolling(false);
-		  },
-		  onLeaveCompleted: function() {
-		      // The Container has just been removed from the DOM.
-			  console.log('leavecomplete');
-		  }
-		});
-
-		// Don't forget to init the view!
-		Homepage.init();
-
-		var Project = Barba.BaseView.extend({
-		  namespace: 'project',
-		  onEnter: function() {
-		      // The new Container is ready and attached to the DOM.
-			  $('.project-trigger').addClass('disappear').delay(1600);
-			  $('.project-trigger').removeClass('appear').delay(1600);
-			  console.log('hi project');
-			  $(window).enllax();
 		  },
 		  onEnterCompleted: function() {
-		      // The Transition has just finished.
-			  console.log('hi project');
 		  },
 		  onLeave: function() {
-		      // A new Transition toward a new page has just started.
-			  console.log('bye project');
 			  $('.project-trigger').addClass('appear').delay(1600);
 			  $('.project-trigger').removeClass('disappear').delay(1600);
 			  $('.project--thumb__single').addClass('animated smallerThumb');
@@ -281,17 +281,274 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
-			  $.fn.pagepiling.setAllowScrolling(true);
-			  $.fn.pagepiling.setKeyboardScrolling(true);
-			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+			  $('html, body').animate({ scrollTop: 0 }, '10s');
 		  },
 		  onLeaveCompleted: function() {
-		      // The Container has just been removed from the DOM.
 		  }
 		});
 
-		// Don't forget to init the view!
-		Project.init();
+		Woodwork.init();
+
+		var Protest = Barba.BaseView.extend({
+		  namespace: 'protest',
+		  onEnter: function() {
+			  $('.project-trigger').addClass('disappear').delay(1600);
+			  $('.project-trigger').removeClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $.fn.pagepiling.moveTo(2);
+			  $('.project h1 span').addClass('fadeOutDown');
+			  $('.mask').addClass('animated fifth maskFade');
+			  $('.mask').removeClass('maskReturn');
+			  $('.mask--single').addClass('maskFade');
+			  $('.mask--single').removeClass('maskReturn');
+			  $('.project--thumb').addClass('animated fourth largerThumb');
+			  $('.project--thumb').removeClass('smallerThumb');
+			  $('.project--thumb__single').addClass('largerThumb');
+			  $('.project--thumb__single').removeClass('smallerThumb');
+			  $('.project--fade').addClass('animated fadeIn');
+			  $('.project--title').addClass('show');
+			  $('.project--title').removeClass('hidden');
+			  $('.project--title h2 span').removeClass('fadeOutDown');
+			  $('.pagination').addClass('fadeOutDown');
+			  $('.pagination').removeClass('fadeInUp');
+			  $('.project--title h2 span').addClass('fadeInUp');
+		  },
+		  onEnterCompleted: function() {
+		  },
+		  onLeave: function() {
+			  $('.project-trigger').addClass('appear').delay(1600);
+			  $('.project-trigger').removeClass('disappear').delay(1600);
+			  $('.project--thumb__single').addClass('animated smallerThumb');
+			  $('.project--thumb__single').removeClass('largerThumb');
+			  $('.project--thumb').addClass('smallerThumb');
+			  $('.project--thumb').removeClass('largerThumb');
+			  $('.project--title h2 span').addClass('fadeOutDown');
+			  $('.project--title h2 span').removeClass('fourth sixth fadeInUp');
+			  $('.mask--single').addClass('animated maskReturn');
+			  $('.mask--single').removeClass('maskFade');
+			  $('.mask').addClass('animated maskReturn');
+			  $('.mask').removeClass('maskFade');
+			  $('.singleTitle span').addClass('fadeInUp');
+			  $('.singleTitle span').removeClass('second third');
+			  $('.project-trigger').removeClass('disappear hidden');
+			  $('.project-trigger').addClass('appear');
+			  $('.project h1 span').addClass('fifth fadeInUp show');
+			  $('.project h1 span').removeClass('fadeOutDown hidden');
+			  $('.pagination').addClass('fadeInUp');
+			  $('.pagination').removeClass('fadeOutDown');
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		Protest.init();
+
+		var BPD = Barba.BaseView.extend({
+		  namespace: 'bpd',
+		  onEnter: function() {
+			  $('.project-trigger').addClass('disappear').delay(1600);
+			  $('.project-trigger').removeClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $.fn.pagepiling.moveTo(3);
+			  $('.project h1 span').addClass('fadeOutDown');
+			  $('.mask').addClass('animated fifth maskFade');
+			  $('.mask').removeClass('maskReturn');
+			  $('.mask--single').addClass('maskFade');
+			  $('.mask--single').removeClass('maskReturn');
+			  $('.project--thumb').addClass('animated fourth largerThumb');
+			  $('.project--thumb').removeClass('smallerThumb');
+			  $('.project--thumb__single').addClass('largerThumb');
+			  $('.project--thumb__single').removeClass('smallerThumb');
+			  $('.project--fade').addClass('animated fadeIn');
+			  $('.project--title').addClass('show');
+			  $('.project--title').removeClass('hidden');
+			  $('.project--title h2 span').removeClass('fadeOutDown');
+			  $('.pagination').addClass('fadeOutDown');
+			  $('.pagination').removeClass('fadeInUp');
+			  $('.project--title h2 span').addClass('fadeInUp');
+		  },
+		  onEnterCompleted: function() {
+		  },
+		  onLeave: function() {
+			  $('.project-trigger').addClass('appear').delay(1600);
+			  $('.project-trigger').removeClass('disappear').delay(1600);
+			  $('.project--thumb__single').addClass('animated smallerThumb');
+			  $('.project--thumb__single').removeClass('largerThumb');
+			  $('.project--thumb').addClass('smallerThumb');
+			  $('.project--thumb').removeClass('largerThumb');
+			  $('.project--title h2 span').addClass('fadeOutDown');
+			  $('.project--title h2 span').removeClass('fourth sixth fadeInUp');
+			  $('.mask--single').addClass('animated maskReturn');
+			  $('.mask--single').removeClass('maskFade');
+			  $('.mask').addClass('animated maskReturn');
+			  $('.mask').removeClass('maskFade');
+			  $('.singleTitle span').addClass('fadeInUp');
+			  $('.singleTitle span').removeClass('second third');
+			  $('.project-trigger').removeClass('disappear hidden');
+			  $('.project-trigger').addClass('appear');
+			  $('.project h1 span').addClass('fifth fadeInUp show');
+			  $('.project h1 span').removeClass('fadeOutDown hidden');
+			  $('.pagination').addClass('fadeInUp');
+			  $('.pagination').removeClass('fadeOutDown');
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		BPD.init();
+
+		var Alberta = Barba.BaseView.extend({
+		  namespace: 'alberta',
+		  onEnter: function() {
+			  $('.project-trigger').addClass('disappear').delay(1600);
+			  $('.project-trigger').removeClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $.fn.pagepiling.moveTo(4);
+			  $('.project h1 span').addClass('fadeOutDown');
+			  $('.mask').addClass('animated fifth maskFade');
+			  $('.mask').removeClass('maskReturn');
+			  $('.mask--single').addClass('maskFade');
+			  $('.mask--single').removeClass('maskReturn');
+			  $('.project--thumb').addClass('animated fourth largerThumb');
+			  $('.project--thumb').removeClass('smallerThumb');
+			  $('.project--thumb__single').addClass('largerThumb');
+			  $('.project--thumb__single').removeClass('smallerThumb');
+			  $('.project--fade').addClass('animated fadeIn');
+			  $('.project--title').addClass('show');
+			  $('.project--title').removeClass('hidden');
+			  $('.project--title h2 span').removeClass('fadeOutDown');
+			  $('.pagination').addClass('fadeOutDown');
+			  $('.pagination').removeClass('fadeInUp');
+			  $('.project--title h2 span').addClass('fadeInUp');
+		  },
+		  onEnterCompleted: function() {
+		  },
+		  onLeave: function() {
+			  $('.project-trigger').addClass('appear').delay(1600);
+			  $('.project-trigger').removeClass('disappear').delay(1600);
+			  $('.project--thumb__single').addClass('animated smallerThumb');
+			  $('.project--thumb__single').removeClass('largerThumb');
+			  $('.project--thumb').addClass('smallerThumb');
+			  $('.project--thumb').removeClass('largerThumb');
+			  $('.project--title h2 span').addClass('fadeOutDown');
+			  $('.project--title h2 span').removeClass('fourth sixth fadeInUp');
+			  $('.mask--single').addClass('animated maskReturn');
+			  $('.mask--single').removeClass('maskFade');
+			  $('.mask').addClass('animated maskReturn');
+			  $('.mask').removeClass('maskFade');
+			  $('.singleTitle span').addClass('fadeInUp');
+			  $('.singleTitle span').removeClass('second third');
+			  $('.project-trigger').removeClass('disappear hidden');
+			  $('.project-trigger').addClass('appear');
+			  $('.project h1 span').addClass('fifth fadeInUp show');
+			  $('.project h1 span').removeClass('fadeOutDown hidden');
+			  $('.pagination').addClass('fadeInUp');
+			  $('.pagination').removeClass('fadeOutDown');
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		Alberta.init();
+
+		var Diversity = Barba.BaseView.extend({
+		  namespace: 'diversity',
+		  onEnter: function() {
+			  $('.project-trigger').addClass('disappear').delay(1600);
+			  $('.project-trigger').removeClass('appear').delay(1600);
+			  $('.about-link').addClass('inactive-link');
+			  $('.project-link').removeClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $.fn.pagepiling.moveTo(5);
+			  $('.project h1 span').addClass('fadeOutDown');
+			  $('.mask').addClass('animated fifth maskFade');
+			  $('.mask').removeClass('maskReturn');
+			  $('.mask--single').addClass('maskFade');
+			  $('.mask--single').removeClass('maskReturn');
+			  $('.project--thumb').addClass('animated fourth largerThumb');
+			  $('.project--thumb').removeClass('smallerThumb');
+			  $('.project--thumb__single').addClass('largerThumb');
+			  $('.project--thumb__single').removeClass('smallerThumb');
+			  $('.project--fade').addClass('animated fadeIn');
+			  $('.project--title').addClass('show');
+			  $('.project--title').removeClass('hidden');
+			  $('.project--title h2 span').removeClass('fadeOutDown');
+			  $('.pagination').addClass('fadeOutDown');
+			  $('.pagination').removeClass('fadeInUp');
+			  $('.project--title h2 span').addClass('fadeInUp');
+		  },
+		  onEnterCompleted: function() {
+		  },
+		  onLeave: function() {
+			  $('.project-trigger').addClass('appear').delay(1600);
+			  $('.project-trigger').removeClass('disappear').delay(1600);
+			  $('.project--thumb__single').addClass('animated smallerThumb');
+			  $('.project--thumb__single').removeClass('largerThumb');
+			  $('.project--thumb').addClass('smallerThumb');
+			  $('.project--thumb').removeClass('largerThumb');
+			  $('.project--title h2 span').addClass('fadeOutDown');
+			  $('.project--title h2 span').removeClass('fourth sixth fadeInUp');
+			  $('.mask--single').addClass('animated maskReturn');
+			  $('.mask--single').removeClass('maskFade');
+			  $('.mask').addClass('animated maskReturn');
+			  $('.mask').removeClass('maskFade');
+			  $('.singleTitle span').addClass('fadeInUp');
+			  $('.singleTitle span').removeClass('second third');
+			  $('.project-trigger').removeClass('disappear hidden');
+			  $('.project-trigger').addClass('appear');
+			  $('.project h1 span').addClass('fifth fadeInUp show');
+			  $('.project h1 span').removeClass('fadeOutDown hidden');
+			  $('.pagination').addClass('fadeInUp');
+			  $('.pagination').removeClass('fadeOutDown');
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		Diversity.init();
+
+		var About = Barba.BaseView.extend({
+		  namespace: 'about',
+		  onEnter: function() {
+			  $('.about-link').removeClass('inactive-link');
+			  $('.project-link').addClass('inactive-link');
+			  $.fn.pagepiling.setAllowScrolling(false);
+			  $.fn.pagepiling.setKeyboardScrolling(false);
+			  $('.pagepiling').addClass('fadeOut');
+			  $('.pagepiling').removeClass('fadeIn');
+		  },
+		  onEnterCompleted: function() {
+			  $('.about--container__header h1').addClass('fadeInUp');
+			  $('.about--container__header h1').removeClass('fadeOut');
+		  },
+		  onLeave: function() {
+			  $('.pagepiling').removeClass('fadeOut');
+			  $('.pagepiling').addClass('sixth fadeIn');
+			  $('.about--container').removeClass('fourth fadeIn');
+			  $('.about--container').addClass('fadeOut');
+			  $('html, body').animate({ scrollTop: 0 }, 'slow');
+			  $('.about--container__header h1').removeClass('fadeInUp');
+			  $('.about--container__header h1').addClass('fadeOut');
+		  },
+		  onLeaveCompleted: function() {
+		  }
+		});
+
+		About.init();
 
 	});
 });
