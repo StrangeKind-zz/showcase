@@ -444,6 +444,15 @@
 .fadeIn {
   animation-name: fadeIn; }
 
+@keyframes fadeInSoft {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.1; } }
+
+.fadeInSoft {
+  animation-name: fadeInSoft; }
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
