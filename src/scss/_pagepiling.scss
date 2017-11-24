@@ -133,6 +133,23 @@
     width: 30px;
     text-align: center;
     overflow: hidden;
+
+    &__single {
+        position: fixed;
+        z-index: 9;
+        right: 4.5vw;
+        top: 50%;
+        margin-top: -25px;
+        color: $light;
+        font-style: normal;
+        font-weight: normal;
+        font-family: 'GL-Regular';
+        font-size: 16px;
+        width: 30px;
+        text-align: center;
+        overflow: hidden;
+        opacity: 0;
+    }
     &--current {
         position: absolute;
         top: 0;

@@ -217,6 +217,8 @@ $(document).ready(function () {
 			  $('.project-trigger').addClass('appear').delay(1600);
 			  $('.about-link').addClass('inactive-link');
 			  $('.project-link').removeClass('inactive-link');
+			  $('.pagination__single').addClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeOutDown');
 			  $.fn.pagepiling.setAllowScrolling(true);
 			  $.fn.pagepiling.setKeyboardScrolling(true);
 
@@ -256,6 +258,8 @@ $(document).ready(function () {
 			  $('.project--title h2 span').removeClass('fadeOutDown');
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('.project--title h2 span').addClass('fadeInUp');
 		  },
 		  onEnterCompleted: function() {
@@ -281,6 +285,8 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('html, body').animate({ scrollTop: 0 }, '10s');
 		  },
 		  onLeaveCompleted: function() {
@@ -314,6 +320,8 @@ $(document).ready(function () {
 			  $('.project--title h2 span').removeClass('fadeOutDown');
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('.project--title h2 span').addClass('fadeInUp');
 		  },
 		  onEnterCompleted: function() {
@@ -339,6 +347,8 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('html, body').animate({ scrollTop: 0 }, 'slow');
 		  },
 		  onLeaveCompleted: function() {
@@ -372,6 +382,8 @@ $(document).ready(function () {
 			  $('.project--title h2 span').removeClass('fadeOutDown');
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('.project--title h2 span').addClass('fadeInUp');
 		  },
 		  onEnterCompleted: function() {
@@ -397,6 +409,8 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('html, body').animate({ scrollTop: 0 }, 'slow');
 		  },
 		  onLeaveCompleted: function() {
@@ -430,6 +444,8 @@ $(document).ready(function () {
 			  $('.project--title h2 span').removeClass('fadeOutDown');
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('.project--title h2 span').addClass('fadeInUp');
 		  },
 		  onEnterCompleted: function() {
@@ -455,6 +471,8 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('html, body').animate({ scrollTop: 0 }, 'slow');
 		  },
 		  onLeaveCompleted: function() {
@@ -488,6 +506,8 @@ $(document).ready(function () {
 			  $('.project--title h2 span').removeClass('fadeOutDown');
 			  $('.pagination').addClass('fadeOutDown');
 			  $('.pagination').removeClass('fadeInUp');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('.project--title h2 span').addClass('fadeInUp');
 		  },
 		  onEnterCompleted: function() {
@@ -513,6 +533,8 @@ $(document).ready(function () {
 			  $('.project h1 span').removeClass('fadeOutDown hidden');
 			  $('.pagination').addClass('fadeInUp');
 			  $('.pagination').removeClass('fadeOutDown');
+			  $('.pagination__single').removeClass('fadeInUp');
+			  $('.pagination__single').addClass('fadeOutDown');
 			  $('html, body').animate({ scrollTop: 0 }, 'slow');
 		  },
 		  onLeaveCompleted: function() {

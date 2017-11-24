@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Goldwyn</title>
+    <!--build:css css/styles.min.css-->
     <link href="src/css/main.css" rel="stylesheet">
+    <!--endbuild-->
 </head>
 <body>
 
@@ -19,6 +21,16 @@
     <div class="navigation--bg"></div>
 
     <div class="pagepiling animated">
+        <div class="pagination__single animated">
+            <div class="pagination--current">
+                <div class="pagination--current pagination--current__1 animated-six fadeInUp">1</div>
+                <div class="pagination--current pagination--current__2 animated-six">2</div>
+                <div class="pagination--current pagination--current__3 animated-six">3</div>
+                <div class="pagination--current pagination--current__4 animated-six">4</div>
+                <div class="pagination--current pagination--current__5 animated-six">5</div>
+            </div>
+            <div class="pagination--total">5</div>
+        </div>
         <section class="project section swiper-slide">
             <div class="overlay-loader animated second slideOutRight"></div>
                 <a href="project-woodwork.html" class="project-trigger hidden disappear"><h1 class="singleTitle"><span class="animated-six first">Woodwork</span> <span class="animated-six third">Showcase</span></h1></a>
@@ -106,14 +118,14 @@
             <div class="project--content__push"></div>
             <div class="project--content">
                 <div class="project--content__introduction grid-edge-side grid-edge-top-large grid-edge-bottom-medium">
-                    <h3 data-parallax='{"y": 100, "smoothness": 10}' class="plx-1 animated first">A showcase for one of the hottest animation studios in Amsterdam. A showcase that has been copied by many designers. The showcase is built out of a horizontal scroll, and large visuals to give the visitors a swift impression of what it is that Woodwork does.</h3>
+                    <h3 data-parallax='{"y": 100, "smoothness": 150}' class="plx-1 animated first">To plan a trip to Alberta is one thing, but to actually know where to be and what to do is not nearly as easy. Travel Alberta is an entirely responsive web application that helps you discover known and unknown places in the Canadian state of Alberta.</h3>
                 </div>
-                <div class="project--content__credits grid-edge-side grid-edge-vertical-large"  data-parallax='{"y": 100, "smoothness": 40}'>
+                <div class="project--content__credits grid-edge-side grid-edge-vertical-large" data-parallax='{"y": 100, "smoothness": 140}'>
                     <h2 data-parallax='{"x": 350, "smoothness": 40}'>Credits</h2>
                     <div class="row">
                         <div class="col-sm-3">
                             <h4 class="plx-1 first animated">Client</h4>
-                            <p class="plx second animated">Woodwork</p>
+                            <p class="plx second animated">Travel Alberta</p>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="plx-1 first animated">Agency</h4>
@@ -129,52 +141,55 @@
                         </div>
                     </div>
                 </div>
-                <div class="project--content__start grid-edge-vertical-large"  data-parallax='{"y": 100, "smoothness": 50}'>
+                <div class="project--content__start grid-edge-vertical-large" data-parallax='{"y": 100, "smoothness": 50}'>
                     <div class="project--content__thumb-1">
-                        <div class="project--content__thumb-1-inner col-md-6 plx-1 animated first" style="background-image: url('src/img/projects/woodwork/woodwork--mood__01.jpg');"></div>
+                        <div class="project--content__thumb-1-inner col-md-6 plx-1 animated first" style="background-image: url('src/img/projects/travelalberta/travelalberta--mood__01.jpg');"></div>
                     </div>
                     <div class="project--content__quote col-md-6">
                         <div class="project--content__quote-inner grid-edge-side row" data-parallax='{"y": 30, "smoothness": 40}'>
                             <h5 class="plx animated second">Site of the day</h5>
-                            <p class="plx-1 animated fourth">They wanted to present their work in a fresh and creative way. So we did just that. They weren’t the only ones who liked the result. The website received the Awwward.</p>
+                            <p class="plx-1 animated fourth">A great concept deserves a great award. And surely it did: Site of the day on Awwwards.</p>
                         </div>
                     </div>
-                    <div class="project--content__thumb-2 col-md-5 plx-1 animated second"  style="background-image: url('src/img/projects/woodwork/woodwork--mood__02.jpg');"></div>
-                    <h2  data-parallax='{"x": -350, "smoothness": 40}'>Awarded</h2>
+                    <div class="project--content__thumb-2 col-md-5 plx-1 animated second"  style="background-image: url('src/img/projects/travelalberta/travelalberta--mood__02.jpg');"></div>
+                    <h2 data-parallax='{"x": -350, "smoothness": 40}'>Awwwarded</h2>
                 </div>
-                <div class="project--content__highlights grid-edge-vertical-large grid-edge-side">
+                <div class="project--content__highlights grid-edge-vertical-large grid-edge-side" data-parallax='{"y": 60, "smoothness": 140}'>
+                        <div class="project--content__normal">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__01.jpg" class="animated plx-1">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__02.jpg" class="animated plx-1">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__03.jpg" class="animated plx-1">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__04.jpg" class="animated plx-1">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__05.jpg" class="animated plx-1">
+                            <img src="src/img/projects/travelalberta/travelalberta--desktop__06.jpg" class="animated plx-1">
+                        </div>
+                </div>
+                <div class="project--content__inspiration grid-edge-top-medium">
+                    <img data-parallax='{"scale":1.1, "smoothness": 100}' class="animated plx-1 third" src="src/img/projects/travelalberta/travelalberta--mood__03.jpg">
+                </div>
+                <div class="project--content__mobile grid-edge-side">
                     <div class="col-md-6 row">
-                        <div class="project--content__highlights-image plx-1 animated fourth" data-parallax='{"y": 40, "smoothness": 20}'></div>
+                        <ul>
+                            <li class="animated plx first"><img src="src/img/projects/travelalberta/travelalberta--mobile__01.png" data-parallax='{"y": -10, "smoothness": 100}'></li>
+                            <li class="animated plx second"><img src="src/img/projects/travelalberta/travelalberta--mobile__02.png" data-parallax='{"y": 20, "smoothness": 100}'></li>
+                            <li class="animated plx third"><img src="src/img/projects/travelalberta/travelalberta--mobile__03.png" data-parallax='{"y": -20, "smoothness": 100}'></li>
+                            <li class="animated plx fourth"><img src="src/img/projects/travelalberta/travelalberta--mobile__04.png" data-parallax='{"y": 30, "smoothness": 100}'></li>
+                        </ul>
                     </div>
                     <div class="col-md-5 col-md-offset-1">
                         <div class="project--content__highlights-text" data-parallax='{"y": 30, "smoothness": 60}'>
-                            <h5 class="plx animated third">The management</h5>
-                            <p class="plx-1 animated fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend nulla quis euismod egestas. Phasellus elit augue, faucibus vitae rutrum in, egestas vitae enim. Vestibulum eu placerat ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend nulla quis euismod egestas. Phasellus elit augue, faucibus vitae rutrum in, egestas vitae enim. Vestibulum eu placerat ipsum.</p>
-                        </div>
-                        <div class="project--content__highlights-list plx-1 animated fourth" data-parallax='{"y": 30, "smoothness": 60}'>
-                            <ul>
-                                <li>Strategy</li>
-                                <li>Wireframes</li>
-                                <li>Concept and prototype</li>
-                                <li>Development</li>
-                                <li>Iterate</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="project--content__normal">
+                            <h5 class="plx animated third">Your guide through Alberta</h5>
+                            <p class="plx-1 animated fourth">A fully responsive browser based app that guides you to some famous places and hidden gems in the Canadian state Alberta.</p>
                         </div>
                     </div>
                 </div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in arcu eu tellus scelerisque auctor. Etiam laoreet ligula eget tincidunt laoreet. Praesent lacinia felis nec felis laoreet, eu mattis tellus pellentesque. Fusce condimentum nibh ut rutrum pulvinar. Pellentesque ac velit vitae neque consequat consectetur nec at velit. Fusce aliquam vehicula ipsum sit amet tincidunt. Donec sit amet arcu ac nibh ultricies auctor eu et leo. Integer rutrum lectus eget quam tincidunt, ac auctor augue placerat. Nam non varius enim, nec posuere urna. Curabitur luctus purus sed urna tincidunt, eu tempor urna dapibus. Mauris in aliquet neque.
-
-                Sed auctor tortor eget arcu sodales, in interdum ipsum pellentesque. Donec aliquam, libero at sagittis tristique, felis ligula interdum felis, non ultricies dui ligula sit amet urna. Etiam nec orci et ex hendrerit porta sit amet vel arcu. In hac habitasse platea dictumst. Aenean et nunc et lectus mollis convallis nec at nisl. Nunc diam enim, interdum a condimentum eget, pharetra at arcu. Pellentesque scelerisque tortor ut condimentum tempus. Nunc gravida mollis velit, quis hendrerit augue lobortis cursus. Cras vestibulum tellus et mi sodales aliquet nec nec mi. Suspendisse a felis at mauris laoreet efficitur ac vitae risus. Integer convallis vehicula dui, vel sollicitudin dui iaculis non. Integer at nisi mauris. In quis porta erat. Pellentesque in nisl dictum, vehicula mi iaculis, tristique nisi.
-
-                Donec venenatis accumsan metus, vel cursus velit. Suspendisse at nunc finibus, tincidunt mi eget, tempor felis. Praesent eget risus urna. Morbi lacus justo, condimentum venenatis sem eget, sagittis mollis ante. Proin tincidunt sem ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum libero a mauris feugiat, id aliquet erat venenatis. Donec venenatis, magna nec aliquam lacinia, elit nisi pretium augue, vitae viverra leo lorem id tellus. Sed sodales interdum lacus. In vestibulum, nisl sit amet interdum gravida, metus odio lacinia elit, ac blandit justo felis vel tellus.
-
-                Sed quis rhoncus nulla. Proin sagittis tincidunt venenatis. Phasellus et lacus ligula. Morbi lobortis euismod risus sit amet commodo. Maecenas nulla magna, venenatis eget dui at, elementum semper arcu. Donec lorem felis, consequat eget nulla at, placerat pellentesque urna. Etiam vulputate semper nisi a varius. Maecenas sit amet est varius, convallis eros id, finibus massa. Ut sed mauris est. Duis sollicitudin mi id leo iaculis interdum. Proin porta pretium ex, et tristique sapien mollis ut. Aliquam rutrum tortor sit amet sem lacinia venenatis. Fusce sapien dolor, tincidunt non lorem et, lacinia hendrerit diam. Integer congue, erat ut fringilla vehicula, elit dolor sollicitudin ligula, quis interdum ipsum lorem non enim.
-
-                Proin vestibulum rutrum lorem, eget ultrices diam pulvinar vel. Duis pulvinar, sapien sed cursus porta, arcu elit ornare tellus, sit amet fringilla erat nulla at dolor. Proin vehicula pellentesque mi sed vestibulum. Vestibulum vel diam et ligula gravida consectetur sit amet ut metus. Cras id egestas leo, non pretium risus. Vivamus lacinia nec magna quis ultricies. Nunc pellentesque nisi lectus, quis pharetra purus pulvinar eu. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                <a href="index.html">
+                    <div class="project--content__footer">
+                        <div class="grid-edge-side">
+                            <h2>Back to projects</h2>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

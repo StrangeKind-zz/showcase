@@ -10,9 +10,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-body {
-  margin: 0; }
-
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
@@ -6926,11 +6923,6 @@ button.close {
 .slideInLeftOut {
   animation-name: slideInLeftOut; }
 
-/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
- */
 .barba-container {
   top: 0 !important;
   left: 0 !important; }
@@ -6943,20 +6935,6 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */ }
 
-/**
- * Remove the margin in all browsers (opinionated).
- */
-body {
-  margin: 0;
-  overflow-x: hidden; }
-
-/* HTML5 display definitions
-     ========================================================================== */
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- * 2. Add the correct display in IE.
- */
 article,
 aside,
 details,
@@ -7242,7 +7220,9 @@ h1, h2, h3, h4, h5,
 
 body {
   background-color: #000000;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  margin: 0;
+  overflow-x: hidden; }
 
 .grid-edge-side {
   padding-left: 4.5vw;
@@ -7307,9 +7287,11 @@ body {
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em; }
     .navigation h1 a {
-      color: white; }
+      color: white;
+      transition: all 0.3s cubic-bezier(0.59, 0.05, 0.82, 0.13); }
       .navigation h1 a:hover {
-        text-decoration: none; }
+        text-decoration: none;
+        letter-spacing: 0.05em; }
       .navigation h1 a:focus {
         text-decoration: none; }
   .navigation ul {
@@ -7433,7 +7415,8 @@ body {
     text-align: center;
     margin: 0;
     margin-top: -40px;
-    display: block; }
+    display: block;
+    line-height: 1.2; }
     .project h1 span {
       transition: all .4s ease;
       opacity: 0;
@@ -7707,9 +7690,14 @@ body {
   left: 0; }
 
 .project--content h3 {
-  font-size: 3vw;
-  letter-spacing: 1.5;
-  text-align: justify; }
+  font-size: 4rem;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  text-align: justify;
+  transition: all 0.3s cubic-bezier(0.59, 0.05, 0.82, 0.13); }
+  @media only screen and (max-width: 480px) {
+    .project--content h3 {
+      font-size: 2.7rem; } }
 
 .project--content h4 {
   font-size: 21px;
@@ -7747,6 +7735,10 @@ body {
     bottom: 13vw;
     line-height: 11vw;
     margin-left: -10%; }
+    @media only screen and (max-width: 480px) {
+      .project--content__credits h2 {
+        font-size: 52vw;
+        bottom: 43vw; } }
   .project--content__credits h4 {
     opacity: 0; }
   .project--content__credits p {
@@ -7763,7 +7755,12 @@ body {
     opacity: 0.1;
     bottom: 3vw;
     line-height: 11vw;
-    margin-left: 25%; }
+    margin-left: 25%;
+    white-space: nowrap; }
+    @media only screen and (max-width: 480px) {
+      .project--content__start h2 {
+        font-size: 52vw;
+        bottom: 8vw; } }
 
 .project--content__thumb-1 {
   width: 100%;
@@ -7795,13 +7792,17 @@ body {
   position: relative;
   overflow: hidden; }
   .project--content__highlights-image {
-    width: 100%;
-    height: 900px;
-    background-color: #e6e6e6;
-    opacity: 0; }
+    width: 100%; }
+    .project--content__highlights-image img {
+      opacity: 0;
+      max-width: 100%;
+      height: auto; }
   .project--content__highlights-text {
     padding-top: 30px;
     box-sizing: border-box; }
+    @media only screen and (max-width: 480px) {
+      .project--content__highlights-text {
+        margin-bottom: 40vw; } }
     .project--content__highlights-text h5 {
       opacity: 0; }
     .project--content__highlights-text p {
@@ -7885,7 +7886,7 @@ body {
     content: "";
     transition: all 0.3s cubic-bezier(0.59, 0.05, 0.82, 0.13); }
   .project--content__footer h2 {
-    font-size: 4vw; }
+    font-size: 4rem; }
   .project--content__footer h4 {
     font-family: 'GL-Regular';
     font-weight: normal;
@@ -7898,7 +7899,8 @@ body {
 .project--content__inspiration {
   width: 100%;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  overflow-x: hidden; }
   .project--content__inspiration img {
     width: 120%;
     height: auto;
@@ -8039,6 +8041,21 @@ body {
   width: 30px;
   text-align: center;
   overflow: hidden; }
+  .pagination__single {
+    position: fixed;
+    z-index: 9;
+    right: 4.5vw;
+    top: 50%;
+    margin-top: -25px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'GL-Regular';
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0; }
   .pagination--current {
     position: absolute;
     top: 0;
@@ -8062,18 +8079,22 @@ body {
 
 .about--container__header {
   width: 100%;
-  padding-top: 250px;
-  padding-bottom: 150px;
+  padding-top: 20vw;
+  padding-bottom: 22vw;
   box-sizing: border-box; }
   .about--container__header h1 {
-    font-size: 3vw;
-    line-height: 5.5vw;
+    font-size: 4rem;
+    line-height: 1.5;
     opacity: 0; }
+    @media only screen and (max-width: 480px) {
+      .about--container__header h1 {
+        font-size: 3.7rem;
+        padding-bottom: 40vw; } }
   .about--container__header h3 {
-    font-size: 17vw;
+    font-size: 27rem;
     position: fixed;
     line-height: 11vw;
-    margin-top: -5vw;
+    margin-top: -2vw;
     z-index: -1;
     color: white;
     pointer-events: none;
@@ -8105,7 +8126,7 @@ body {
   padding-top: 12vw;
   padding-bottom: 12vw; }
   .about--container__footer h2 {
-    font-size: 36px;
+    font-size: 3rem;
     font-family: 'GL-Demi';
     margin-bottom: 50px;
     opacity: 0; }

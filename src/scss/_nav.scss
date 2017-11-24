@@ -28,9 +28,11 @@
 
         a {
             color: white;
+            transition: all 0.3s cubic-bezier(.59,.05,.82,.13);
 
             &:hover {
                 text-decoration: none;
+                letter-spacing: 0.05em;
             }
             &:focus {
                 text-decoration: none;
