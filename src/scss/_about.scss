@@ -2,19 +2,24 @@
 
     &__header {
         width: 100%;
-        padding-top: 250px;
-        padding-bottom: 150px;
+        padding-top: 20vw;
+        padding-bottom: 22vw;
         box-sizing: border-box;
         h1 {
-            font-size: 3vw;
-            line-height: 5.5vw;
+            font-size: 4rem;
+            line-height: 1.5;
             opacity: 0;
+
+            @media only screen and (max-width: $S){
+                    font-size: 3.7rem;
+                    padding-bottom: 40vw;
+        	}
         }
         h3 {
-            font-size: 17vw;
+            font-size: 27rem;
             position: fixed;
             line-height: 11vw;
-            margin-top: -5vw;
+            margin-top: -2vw;
             z-index: -1;
             color: white;
             pointer-events: none;
@@ -51,7 +56,7 @@
         padding-bottom: 12vw;
 
         h2 {
-            font-size: 36px;
+            font-size: 3rem;
             font-family: 'GL-Demi';
             margin-bottom: 50px;
             opacity: 0;

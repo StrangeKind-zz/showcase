@@ -1,9 +1,15 @@
 .project--content {
 
     h3 {
-        font-size: 3vw;
-        letter-spacing: 1.5;
+        font-size: 4rem;
+        letter-spacing: 0.03em;
+        line-height: 1.5;
         text-align: justify;
+        transition: all 0.3s cubic-bezier(.59,.05,.82,.13);
+
+        @media only screen and (max-width: $S){
+                font-size: 2.7rem;
+    	}
     }
     h4 {
         font-size: 21px;
@@ -36,6 +42,7 @@
     }
     &__credits {
         position: relative;
+        overflow: hidden;
 
         h2 {
             font-size: 22vw;
@@ -44,6 +51,10 @@
             bottom: 13vw;
             line-height: 11vw;
             margin-left: -10%;
+            @media only screen and (max-width: $S){
+                    font-size: 52vw;
+                    bottom: 43vw;
+        	}
         }
         h4 {
             opacity: 0;
@@ -66,6 +77,11 @@
             bottom: 3vw;
             line-height: 11vw;
             margin-left: 25%;
+            white-space: nowrap;
+            @media only screen and (max-width: $S){
+                    font-size: 52vw;
+                    bottom: 8vw;
+        	}
         }
     }
     &__thumb-1 {
@@ -106,13 +122,18 @@
 
         &-image {
             width: 100%;
-            height: 900px;
-            background-color: #e6e6e6;
-            opacity: 0;
+            img {
+                opacity: 0;
+                max-width: 100%;
+                height: auto;
+            }
         }
         &-text {
             padding-top: 30px;
             box-sizing: border-box;
+            @media only screen and (max-width: $S){
+                    margin-bottom: 40vw;
+        	}
 
             h5 {
                 opacity: 0;
@@ -220,7 +241,7 @@
         }
 
         h2 {
-            font-size: 4vw;
+            font-size: 4rem;
         }
 
         h4 {
@@ -240,6 +261,7 @@
         width: 100%;
         position: relative;
         text-align: center;
+        overflow-x: hidden;
 
         img {
             width: 120%;
