@@ -7727,7 +7727,8 @@ body {
     opacity: 0; }
 
 .project--content__credits {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .project--content__credits h2 {
     font-size: 22vw;
     position: absolute;
@@ -7902,9 +7903,8 @@ body {
   text-align: center;
   overflow-x: hidden; }
   .project--content__inspiration img {
-    width: 120%;
+    width: 100%;
     height: auto;
-    transform: scale(1.2);
     opacity: 0; }
 
 /*!
